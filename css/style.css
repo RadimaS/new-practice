@@ -3,8 +3,7 @@
 }
 @font-face {
   font-family: "MuseoCyrl-900";
-  src: url("../fonts/") format("woff"),
-    url("../fonts/2") format("woff2");
+  src: url("../fonts/") format("woff"), url("../fonts/2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }
@@ -17,17 +16,30 @@
 }
 
 body {
-  font-family: "MuseoCyrl-300";
-  max-width: 1140px;
+  font-family: sans-serif;
   margin: auto;
   color: #202020;
 }
+img {
+  max-width: 100%;
+}
+.section-title {
+  margin-top: 0;
+  margin-bottom: 35px;
+}
 .header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 99;
   padding: 22px 0;
   background-color: #f1f1f1;
 }
 .header-container {
   display: flex;
+  max-width: 1140px;
+  margin: auto;
   justify-content: space-between;
 }
 .nav-link,
@@ -45,15 +57,29 @@ body {
 }
 /* главная секция */
 .hero {
+  margin-top: 60px;
   padding: 62px 0 71px 0;
 }
 .hero-container {
   display: flex;
+  max-width: 1140px;
+  margin: auto;
   align-items: center;
 }
-.hero-image {
+.image-block {
+  position: relative;
   margin-right: 122px;
 }
+.hero-label {
+  padding: 12px 17px;
+  background-color: red;
+  font-weight: bold;
+  position: absolute;
+  color: white;
+  right: 0;
+  top: 15px;
+}
+
 .author {
   display: block;
   font-size: 24px;
@@ -95,10 +121,12 @@ body {
   margin-right: 64px;
 }
 .favorites {
+  display: flex;
   font-style: 16px;
   font-weight: 400;
   text-decoration: none;
   color: inherit;
+  align-items: center;
 }
 .button {
   font-size: 16px;
@@ -116,18 +144,22 @@ body {
   text-decoration: none;
   color: #f8c900;
 }
-.about-container{
-  display: flex;
+.about {
   background-color: #f1f1f1;
+}
+.about-container {
+  display: flex;
+  max-width: 1140px;
+  margin: auto;
   padding: 96px 0;
   align-items: flex-start;
   justify-content: space-between;
 }
-.about-book{
+.about-book {
   max-width: 454px;
   flex-shrink: 0;
 }
-.about-author{
+.about-author {
   display: flex;
   flex-wrap: wrap;
   max-width: 552px;
@@ -138,7 +170,7 @@ body {
   padding: 68px 53px;
   align-items: center;
 }
-.author-avatar{
+.author-avatar {
   width: 100px;
   height: 100px;
   object-fit: cover;
@@ -146,40 +178,50 @@ body {
   margin-right: 21px;
   margin-bottom: 24px;
 }
-.author-name{
+.author-name {
   margin: 0;
   font-size: 16px;
   font-weight: 700;
   margin-bottom: 14px;
 }
-.about-text{
+.about-text {
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
 }
-.author-link{
+.author-link {
   font-size: 16px;
   font-weight: 400;
   text-decoration: none;
   color: inherit;
 }
-.author-text{
+.author-text {
   flex-basis: 100%;
   font-size: 16px;
   font-weight: 400;
 }
-.photos{
+.photos {
   display: flex;
   justify-content: space-between;
+
+  margin-bottom: 20px;
 }
-.readers-photo{
+.readers {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+.readers-container {
+  margin: auto;
+  max-width: 1140px;
+}
+.readers-photo {
   width: 167px;
   height: 167px;
   object-fit: cover;
   flex-shrink: 1;
 }
 
-.footer{
+.footer {
   padding-top: 60px;
   padding-bottom: 93px;
   background-color: rgb(197, 197, 197);
@@ -191,17 +233,203 @@ body {
   flex-wrap: wrap;
   justify-content: space-between;
 }
-.footer-list{
+.footer-list {
   padding: 0;
-  font-weight: 700;
   margin-bottom: 32px;
   margin-top: 0;
   list-style: none;
 }
-.list-item{
+.footer-title {
+  font-weight: bold;
+}
+.list-item {
   margin-bottom: 16px;
 }
 .footer-link {
   color: black;
   text-decoration: none;
+}
+.to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 18px;
+  border: 1px solid rgb(175, 174, 174);
+  box-shadow: rgba(161, 161, 161, 0.08);
+  border-radius: 4px;
+  background-color: #fff;
+}
+@media (max-width: 1200px) {
+  .header-container,
+  .hero-container,
+  .about-container,
+  .readers-container,
+  .footer-container {
+    max-width: 960px;
+  }
+  .image-block {
+    min-width: 390px;
+    max-width: 390px;
+    margin-right: 30px;
+  }
+  .about-book {
+    max-width: 367px;
+  }
+  .readers-photo {
+    width: 140px;
+    height: 140px;
+  }
+}
+@media (max-width: 992px) {
+  .header-container,
+  .hero-container,
+  .about-container,
+  .readers-container,
+  .footer-container {
+    max-width: 760px;
+  }
+  .nav {
+    display: none;
+  }
+  .image-block {
+    min-width: 300px;
+    max-width: 300px;
+  }
+  .author {
+    font-size: 22px;
+    margin-bottom: 13px;
+  }
+  .title {
+    font-size: 46px;
+    margin-bottom: 10px;
+  }
+  .subtitle {
+    font-size: 24px;
+    margin-bottom: 28px;
+  }
+  .age,
+  .format {
+    flex-grow: 1;
+  }
+  .price {
+    margin-bottom: 39px;
+  }
+  .button {
+    padding: 20px 40px;
+  }
+  .section-title {
+    font-size: 24px;
+    margin-bottom: 29px;
+  }
+  .about-container {
+    flex-wrap: wrap;
+  }
+  .about-book {
+    max-width: 100%;
+    margin-bottom: 62px;
+  }
+  .readers-photo {
+    width: 170px;
+    height: 170px;
+  }
+  .readers-photo:nth-last-child(-n + 2) {
+    display: none;
+  }
+  .requisites {
+    margin-right: 70px;
+  }
+  .information {
+    margin-right: 70px;
+  }
+}
+@media (max-width: 768px) {
+  .header-container,
+  .hero-container,
+  .about-container,
+  .readers-container,
+  .footer-container {
+    max-width: 560px;
+  }
+  .hero-container {
+    flex-wrap: wrap;
+  }
+  .image-block {
+    min-width: 100%;
+    margin-bottom: 60px;
+  }
+  .hero-image {
+    width: 100%;
+  }
+  .readers-photo:nth-last-child(n + 6) {
+    display: none;
+  }
+}
+@media (max-width: 576px) {
+  .header-container,
+  .hero-container,
+  .about-container,
+  .readers-container,
+  .footer-container {
+    width: 95%;
+  }
+  .author {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+  .title {
+    font-size: 36px;
+    margin-bottom: 19px;
+  }
+  .subtitle {
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+  .info {
+    flex-wrap: wrap;
+    margin-bottom: 17px;
+  }
+  .info-text {
+    flex-basis: 100%;
+    margin-bottom: 19px;
+  }
+  .button {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+  }
+  .button-primary {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+  .about-author {
+    padding: 54px 44px;
+  }
+  .about-book {
+    margin-bottom: 70px;
+  }
+  .author-text {
+    font-size: 14px;
+  }
+  .author-avatar {
+    width: 64px;
+    height: 64px;
+  }
+  .readers-photo {
+    width: 140px;
+    height: 140px;
+  }
+  .requisites,
+  .information,
+  .contacts {
+    flex-basis: 100%;
+    margin-bottom: 36px;
+    margin-right: 0;
+  }
+  .footer-title {
+    font-size: 18px;
+    margin-bottom: 32px;
+  }
+  .footer-link {
+    font-size: 16px;
+  }
 }
